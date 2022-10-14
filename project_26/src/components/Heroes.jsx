@@ -14,15 +14,8 @@ class Heroes extends React.Component{
          <div className="hero-universe">Вселенная: {universe}</div>
          <div className="hero-friend">Друзья: {friends}</div>
          <div className="hero-power">Суперспособности: {superpower}</div>
-         </div>
-        <span>  </span>
-        <input type="radio" className="rating" value="1" required>{id}</input>
-        <input type="radio" className="rating"  value="2" required>{id}</input>
-        <input type="radio" className="rating"  value="3" required>{id}</input>
-        <input type="radio" className="rating"  value="4" required>{id}</input>
-        <input type="radio" className="rating"  value="5" required>{id}</input>
-       
-   
+     
+</div>
         </div>
           
     );

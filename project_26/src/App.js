@@ -46,8 +46,7 @@ class App extends React.Component {
 {
   array.map((hero) =>
   <Heroes name={hero.name} url={hero.url} realname={hero.realname} 
-  universe={hero.universe}> friends={hero.friends} 
-  superpower={hero.superpower} </Heroes>
+  universe={hero.universe} friends={hero.friends} superpower={hero.superpower}></Heroes>
   )
 }
       </div>

@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+1. Что такое props и можно ли использовать props в функциональных компонентах?
+   свойства компонента
+2. Нужно ли выделять в отдельный компонент статью в блоге?
+   Если она типовая - то да, для того чтобы остальные статьи работали по образу и подобию
+3. Можно ли использовать React без JSX?
+   Можно, формат jsx не обязательный элемент для реакта
+4. Чем отличается JSX от HTML?
+JSX описывает каждый элемент отдельно соедииняя в себе Html и css, тогда как HTML файл собирает в себе всю верстку страницы, однако JS и CSS надо подключать отдельно
+5. Для чего нам нужны свойства (props) компонентов?
+ Для того, чтобы оптимизировать свойства элементов, написав 1 раз props в дальнейшем мы можем обращатся к совокупности этих свойств
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+6. В примере с `CardList` чем можно было бы заменить `<React.Fragment>`?
+Вместо <React.Fragment> можно обернуть код в пустые скобки <></>
 
-## Available Scripts
+7. Можно ли сказать, что классовые и функциональные компоненты равнозначны по функциональности?
+вобщем да, но есть различия, которые могут быть важными для реализации некоторых компонентов. функциональный код с хуками - это нововведение, однако классовый также продолжает работать
+8. Можно ли полностью описать приложение, используя только функциональные компоненты?
+ да можно, если нам не нужны компоненты, которые хранят только состояния
 
-In the project directory, you can run:
+9. Какой командой мы делаем экспорт компонента для возможности его использования в других местах приложения?
+export default xx ;
+   export default xx extends Component {...}
+10. Изучите структуру компонент в проекте [https://github.com/alisa-tsvetkova/EthereumUI](https://github.com/alisa-tsvetkova/EthereumUI) и напишите, какой именно компонент является самым верхним, а какой - самым "глубоким"?
+<Block></Block> - самый глубокий компонент, <Router> - самый верхний
 
-### `npm start`
+11. Какой командой можно сгенерировать разметку/компоненты на основе заранее заданного массива элементов? Приведите пример.
+function ListItem(props) {
+return <li>{props.value}</li>;
+    }
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+function NumberList(props) {
+const numbers = props.numbers;
+return (
+<ul>
+{numbers.map((number) =>
+<ListItem key={number.toString()}
+                  value={number} />
+)}
+</ul>
+);
+}
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+const numbers = [1, 2, 3, 4, 5];
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);

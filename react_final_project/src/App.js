@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import '.components/card.css'
+import '.components/footer.css'
+import '.components/header.css'
+import '.components/database.css'
 
 function App() {
   return (
